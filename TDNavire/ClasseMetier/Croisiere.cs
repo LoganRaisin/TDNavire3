@@ -1,12 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace TDNavire
+﻿namespace TDNavire
 {
-    class Croisiere
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    using System.Threading.Tasks;
+
+    /// <summary>
+    /// classe croisieres.
+    /// </summary>
+    internal class Croisiere
     {
     }
 }
