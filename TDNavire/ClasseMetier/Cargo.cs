@@ -33,7 +33,7 @@
         /// <summary>
         /// Gets typeFret.
         /// </summary>
-        public string TypeFret { get => this.typeFret; }
+        protected string TypeFret { get => this.typeFret; }
 
         /// <summary>
         /// methode pour charger.

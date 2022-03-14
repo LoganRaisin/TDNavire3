@@ -32,7 +32,7 @@
         /// <summary>
         /// Gets typefluide.
         /// </summary>
-        public string TypeFLuide { get => this.typeFLuide; }
+        protected string TypeFLuide { get => this.typeFLuide; }
 
         /// <summary>
         /// methode pour charger.
