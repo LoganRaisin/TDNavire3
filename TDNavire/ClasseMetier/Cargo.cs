@@ -31,11 +31,40 @@
         }
 
         /// <summary>
-        /// methode pour charger bateau.
+        /// Gets typeFret.
         /// </summary>
-        public void Charger(int)
-        {
+        public string TypeFret { get => this.typeFret; }
 
+        /// <summary>
+        /// methode pour charger.
+        /// </summary>
+        /// <param name="nombre">tonnes que l'on charge.</param>
+        public void Charger(int nombre)
+        {
+            if (this.tonnageActuel + nombre <= this.tonnageDWT)
+            {
+                this.tonnageDWT += nombre;
+            }
+            else
+            {
+                throw new Exception("Le bateau ne peut pas accueillir autant de marchandise.");
+            }
+        }
+
+        /// <summary>
+        /// methode pour decharger bateau.
+        /// </summary>
+        /// <param name="nombre">quantité dechargée.</param>
+        public void Decharger(int nombre)
+        {
+            if (this.tonnageActuel - nombre >= 0)
+            {
+                this.tonnageActuel -= nombre;
+            }
+            else
+            {
+                throw new Exception("Le bateau a moins que la quantité annoncée.");
+            }
         }
     }
 }
