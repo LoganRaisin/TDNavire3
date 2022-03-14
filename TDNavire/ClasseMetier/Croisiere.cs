@@ -104,7 +104,10 @@
         {
             if (lesPassagersPresents.Count <= this.listePassagers.Count)
             {
-
+            }
+            else
+            {
+                throw new Exception("liste plu grande que le nombre de passager");
             }
         }
     }
