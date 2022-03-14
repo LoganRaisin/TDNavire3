@@ -46,6 +46,7 @@
     <Compile Include="ClasseMetier\Cargo.cs" />
     <Compile Include="ClasseMetier\Croisiere.cs" />
     <Compile Include="Exceptions\GestionPortException.cs" />
+    <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Interfaces\ICroisierable.cs" />
     <Compile Include="Interfaces\INavCommercable.cs" />
     <Compile Include="Interfaces\IStationnable.cs" />
