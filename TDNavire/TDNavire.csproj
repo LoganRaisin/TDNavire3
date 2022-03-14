@@ -43,11 +43,28 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
+    <Compile Include="ClasseMetier\Cargo.cs" />
+    <Compile Include="ClasseMetier\Croisiere.cs" />
+    <Compile Include="Exceptions\GestionPortException.cs" />
+    <Compile Include="Interfaces\ICroisierable.cs" />
+    <Compile Include="Interfaces\INavCommercable.cs" />
+    <Compile Include="Interfaces\IStationnable.cs" />
+    <Compile Include="ClasseMetier\Navire.cs" />
+    <Compile Include="ClasseMetier\Passager.cs" />
+    <Compile Include="ClasseMetier\Port.cs" />
+    <Compile Include="Programme\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ClasseMetier\Tanker.cs" />
+    <Compile Include="ClassesTechniques\Test.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <Analyzer Include="..\packages\StyleCop.Analyzers.1.1.118\analyzers\dotnet\cs\StyleCop.Analyzers.CodeFixes.dll" />
+    <Analyzer Include="..\packages\StyleCop.Analyzers.1.1.118\analyzers\dotnet\cs\StyleCop.Analyzers.dll" />
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
