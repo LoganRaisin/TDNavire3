@@ -1,4 +1,4 @@
-﻿namespace TDNavire
+﻿namespace Station.Interfaces
 {
     using System;
     using System.Collections.Generic;

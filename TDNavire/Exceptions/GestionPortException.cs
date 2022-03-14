@@ -1,4 +1,4 @@
-﻿namespace TDNavire
+﻿namespace GestionNavire.Exceptions
 {
     using System;
     using System.Collections.Generic;

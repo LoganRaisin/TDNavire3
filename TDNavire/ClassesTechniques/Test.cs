@@ -1,4 +1,5 @@
-﻿namespace TDNavire
+﻿namespace NavireHeritage.ClassesTechniques
+
 {
     using System;
     using System.Collections.Generic;

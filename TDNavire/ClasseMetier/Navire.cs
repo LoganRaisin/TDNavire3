@@ -1,4 +1,4 @@
-﻿namespace TDNavire
+﻿namespace NavireHeritage.classesMetier
 {
     using System;
     using System.Collections.Generic;
