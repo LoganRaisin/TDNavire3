@@ -12,7 +12,7 @@
     internal abstract class Navire
     {
         protected readonly string imo;
-        protected readonly char nom;
+        protected readonly string nom;
         protected string lattitude;
         protected string longitude;
         protected int tonnageGT;
@@ -29,7 +29,7 @@
         /// <param name="tonnageGT">tonnage du bateau. </param>
         /// <param name="tonnageDWT">chargement max du bateau avec personnel consommables et cargaison.</param>
         /// <param name="tonnageActuel"> partie du tonnage actuelle utilisée.</param>
-        protected Navire(string imo, char nom, string lattitude, string longitude, int tonnageGT, int tonnageDWT, int tonnageActuel)
+        protected Navire(string imo, string nom, string lattitude, string longitude, int tonnageGT, int tonnageDWT, int tonnageActuel)
         {
             this.imo = imo;
             this.nom = nom;
@@ -48,7 +48,7 @@
         /// <summary>
         /// Gets nom.
         /// </summary>
-        protected char Nom { get => this.nom; }
+        protected string Nom { get => this.nom; }
 
         /// <summary>
         /// Gets or sets Lattitude.
