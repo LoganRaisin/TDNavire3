@@ -43,36 +43,36 @@
         /// <summary>
         /// Gets Imo.
         /// </summary>
-        protected string Imo { get => this.imo; }
+        public string Imo { get => this.imo; }
 
         /// <summary>
         /// Gets nom.
         /// </summary>
-        protected string Nom { get => this.nom; }
+        public string Nom { get => this.nom; }
 
         /// <summary>
         /// Gets or sets Lattitude.
         /// </summary>
-        protected string Lattitude { get => this.lattitude; set => this.lattitude = value; }
+        public string Lattitude { get => this.lattitude; set => this.lattitude = value; }
 
         /// <summary>
         /// Gets or sets Longitude.
         /// </summary>
-        protected string Longitude { get => this.longitude; set => this.longitude = value; }
+        public string Longitude { get => this.longitude; set => this.longitude = value; }
 
         /// <summary>
         /// Gets or sets TonnageGT.
         /// </summary>
-        protected int TonnageGT { get => this.tonnageGT; set => this.tonnageGT = value; }
+        public int TonnageGT { get => this.tonnageGT; set => this.tonnageGT = value; }
 
         /// <summary>
         /// Gets or sets TonnageDWT.
         /// </summary>
-        protected int TonnageDWT { get => this.tonnageDWT; set => this.tonnageDWT = value; }
+        public int TonnageDWT { get => this.tonnageDWT; set => this.tonnageDWT = value; }
 
         /// <summary>
         /// Gets or sets Tonnage actuel.
         /// </summary>
-        protected int TonnageActuel { get => this.tonnageActuel; set => this.tonnageActuel = value; }
+        public int TonnageActuel { get => this.tonnageActuel; set => this.tonnageActuel = value; }
     }
 }

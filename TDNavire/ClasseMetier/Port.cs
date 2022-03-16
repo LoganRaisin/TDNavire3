@@ -106,5 +106,17 @@
         /// Gets or sets.
         /// </summary>
         internal Dictionary<string, Navire> NavireEnAttente { get => this.navireEnAttente; set => this.navireEnAttente = value; }
+
+        /// <summary>
+        /// methode pour enregistrer arrivee prevue.
+        /// </summary>
+        /// <param name="navire">un navire dans le port.</param>
+        public void EnregistrerArriveePrevue(Navire navire)
+        {
+            if (this.NavireAttendus.Count > 0)
+            {
+                this.NavireArrives.Add(navire.Imo)
+            }
+        }
     }
 }
