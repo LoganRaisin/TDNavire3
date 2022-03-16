@@ -115,7 +115,11 @@
         {
             if (this.NavireAttendus.Count > 0)
             {
-                this.NavireArrives.Add(navire.Imo)
+                this.NavireArrives.Add(navire.Imo, navire);
+            }
+            else
+            {
+                throw new Exception("aucun bateau attendu");
             }
         }
     }
