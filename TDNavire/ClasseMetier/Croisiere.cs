@@ -104,10 +104,14 @@
         {
             if (lesPassagersPresents.Count <= this.listePassagers.Count)
             {
+                foreach (Passager passager in lesPassagersPresents)
+                {
+                    this.listePassagers.Remove(passager.NumPasseport);
+                }
             }
             else
             {
-                throw new Exception("liste plu grande que le nombre de passager");
+                throw new Exception("liste plu grande que le nombre de passager présent");
             }
         }
     }
