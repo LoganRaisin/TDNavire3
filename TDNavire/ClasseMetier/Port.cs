@@ -113,14 +113,47 @@
         /// <param name="navire">un navire dans le port.</param>
         public void EnregistrerArriveePrevue(Navire navire)
         {
-            if (this.NavireAttendus.Count > 0)
+            this.NavireAttendus.Add(navire.Imo, navire);
+        }
+
+        /// <summary>
+        /// methode surcharge pour enregistrer arriver prévu.
+        /// </summary>
+        /// <param name="navire">navire.</param>
+        public void EnregistrerArrivee(Navire navire)
+        {
+            if (this.NavireAttendus.ContainsKey(navire.Imo))
             {
                 this.NavireArrives.Add(navire.Imo, navire);
             }
             else
             {
-                throw new Exception("aucun bateau attendu");
+                throw new Exception("Le navire n'est pas attendu");
             }
+        }
+
+        /// <summary>
+        /// enregistrerer navire 2.
+        /// </summary>
+        /// <param name="immat">num imo.</param>
+        public void EnregistrerArrivee(string immat)
+        {
+            if (this.NavireAttendus.ContainsKey(immat))
+            {
+                this.NavireArrives.Add(immat, this.NavireAttendus(immat));
+            }
+            else
+            {
+                throw new Exception("Le navire n'est pas attendu");
+            }
+        }
+        /// <summary>
+        /// methode pour enregistrer depart des navires.
+        /// </summary>
+        /// <param name="navire">navire.</param>
+        public void EnregistrerDepart(Navire navire)
+        {
+
         }
     }
 }
