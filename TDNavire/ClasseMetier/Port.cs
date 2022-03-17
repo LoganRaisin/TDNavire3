@@ -169,10 +169,21 @@
         /// Methode ajout navire.
         /// </summary>
         /// <param name="navire">navire en attente</param>
-        /// <returns>si le navire est ajouté.</returns>
-        public string AjoutNavireEnAttente(Navire navire)
+        public void AjoutNavireEnAttente(Navire navire)
         {
-            return "salut";
+            if (this.NavireArrives.TryGetValue(navire.Imo, out navire))
+            {
+
+            }
+        }
+
+        /// <summary>
+        /// methode est attendu.
+        /// </summary>
+        /// <param name="imo">imo.</param>
+        public void EstAttendu(string imo)
+        {
+
         }
     }
 }
