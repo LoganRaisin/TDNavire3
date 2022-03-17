@@ -140,20 +140,38 @@
         {
             if (this.NavireAttendus.ContainsKey(immat))
             {
-                this.NavireArrives.Add(immat, this.NavireAttendus(immat));
+                this.NavireArrives.Add(immat,this.NavireAttendus.Values(immat);
             }
             else
             {
                 throw new Exception("Le navire n'est pas attendu");
             }
         }
+
         /// <summary>
         /// methode pour enregistrer depart des navires.
         /// </summary>
         /// <param name="navire">navire.</param>
         public void EnregistrerDepart(Navire navire)
         {
+            if (this.NavireArrives.ContainsKey(navire.Imo))
+            {
+                this.NavireArrives.Remove(navire.Imo);
+            }
+            else
+            {
+                throw new Exception("le batal n'est pas dans le port.");
+            }
+        }
 
+        /// <summary>
+        /// Methode ajout navire.
+        /// </summary>
+        /// <param name="navire">navire en attente</param>
+        /// <returns>si le navire est ajouté.</returns>
+        public string AjoutNavireEnAttente(Navire navire)
+        {
+            return "salut";
         }
     }
 }
