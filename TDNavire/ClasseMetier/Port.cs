@@ -171,9 +171,9 @@
         /// <param name="navire">navire en attente</param>
         public void AjoutNavireEnAttente(Navire navire)
         {
-            if (this.NavireArrives.TryGetValue(navire.Imo, out navire))
+            if (!this.NavireArrives.TryGetValue(navire.Imo, out navire))
             {
-
+                this.na
             }
         }
 
