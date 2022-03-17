@@ -99,14 +99,20 @@
         /// methode pour debarquement.
         /// </summary>
         /// <param name="lesPassagersPresents">passager presents dans bateau.</param>
-        public void Debarquer(List<Passager> lesPassagersPresents)
+        /// <returns>passagers pas trouvé.</returns>
+        public List<Passager> Debarquer(List<Passager> lesPassagersPresents)
         {
+            int cpt = 0;
             if (lesPassagersPresents.Count <= this.listePassagers.Count)
             {
                 foreach (Passager passager in lesPassagersPresents)
                 {
                     this.listePassagers.Remove(passager.NumPasseport);
+                    lesPassagersPresents.RemoveAt(cpt);
+                    cpt++;
                 }
+
+                return lesPassagersPresents;
             }
             else
             {

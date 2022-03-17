@@ -1,5 +1,6 @@
 ﻿namespace NavireHeritage.classesMetier
 {
+    using GestionNavire.Exceptions;
     using System;
     using System.Collections.Generic;
     using System.Linq;
@@ -135,12 +136,12 @@
         /// <summary>
         /// enregistrerer navire 2.
         /// </summary>
-        /// <param name="immat">num imo.</param>
-        public void EnregistrerArrivee(string immat)
+        /// <param name="imo">num imo.</param>
+        public void EnregistrerArrivee(string imo)
         {
-            if (this.NavireAttendus.ContainsKey(immat))
+            if (this.NavireAttendus.ContainsKey(imo))
             {
-                this.NavireArrives.Add(immat,this.NavireAttendus.Values(immat);
+                this.NavireArrives.Add(imo, this.NavireAttendus[imo]);
             }
             else
             {
@@ -160,7 +161,7 @@
             }
             else
             {
-                throw new Exception("le batal n'est pas dans le port.");
+                throw new GestionPortException("le batal n'est pas dans le port.");
             }
         }
 

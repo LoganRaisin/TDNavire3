@@ -1,9 +1,11 @@
 ﻿namespace NavireHeritage.classesMetier
 {
+    using GestionNavire.Exceptions;
     using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Text;
+    using System.Text.RegularExpressions;
     using System.Threading.Tasks;
 
     /// <summary>
@@ -11,6 +13,7 @@
     /// </summary>
     internal abstract class Navire
     {
+
         protected readonly string imo;
         protected readonly string nom;
         protected string lattitude;
@@ -31,7 +34,16 @@
         /// <param name="tonnageActuel"> partie du tonnage actuelle utilisée.</param>
         protected Navire(string imo, string nom, string lattitude, string longitude, int tonnageGT, int tonnageDWT, int tonnageActuel)
         {
-            this.imo = imo;
+            Regex rx = new Regex("^(IMO[0-9]{7})$");
+            if (rx.IsMatch(imo))
+            {
+                this.imo = imo;
+            }
+            else
+            {
+                throw new GestionPortException("Le numéro IMO est invalide");
+            }
+
             this.nom = nom;
             this.lattitude = lattitude;
             this.longitude = longitude;

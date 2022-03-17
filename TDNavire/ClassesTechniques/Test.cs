@@ -1,6 +1,8 @@
 ﻿namespace NavireHeritage.ClassesTechniques
 
 {
+    using GestionNavire.Exceptions;
+    using NavireHeritage.classesMetier;
     using System;
     using System.Collections.Generic;
     using System.Linq;
