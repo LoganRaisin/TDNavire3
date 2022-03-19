@@ -153,7 +153,19 @@
         /// <param name="navire">navire.</param>
         public void EnregistrerDepart(Navire navire)
         {
-
+            if (this.NavireArrives.ContainsKey(navire.Imo))
+            {
+                this.NavireArrives.Remove(navire.Imo);
+            }
+            else
+            {
+                throw new Exception("Pas présent dans le port");
+            }
+        }
+        
+        public void AjoutNavireEnAttente(Navire navire)
+        {
+            this.navireArrives.Add(navire.Imo,navire);
         }
     }
 }
