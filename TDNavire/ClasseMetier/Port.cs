@@ -173,7 +173,7 @@
         {
             if (!this.NavireArrives.TryGetValue(navire.Imo, out navire))
             {
-                this.na
+
             }
         }
 
@@ -181,9 +181,37 @@
         /// methode est attendu.
         /// </summary>
         /// <param name="imo">imo.</param>
-        public void EstAttendu(string imo)
+        public bool EstAttendu(string imo)
+        {
+            return this.NavireAttendus.ContainsKey(imo);
+        }
+
+        public bool EstPresent(string imo)
+        {
+            return this.NavireArrives.ContainsKey(imo)
+        }
+
+        public bool  EstEnAttente(String imo)
+        {
+            return this.NavireEnAttente.ContainsKey(imo);
+        }
+        public void Chargement(String imo, int qte)
+        {
+            if (quantite < this.navireArrives[imo].TonnageDWT - this.navireArrives[imo].TonnageActuel)
+            {
+                this.navireArrives[imo].TonnageActuel += qte;
+            }
+            else
+            {
+                throw new Exception("pas la capacité");
+            }
+        }
+
+        public void Dechargement(string imo, int qte)
         {
 
         }
+
+
     }
 }
