@@ -1,5 +1,6 @@
 ﻿namespace NavireHeritage.classesMetier
 {
+    using GestionNavire.Exceptions;
     using System;
     using System.Collections.Generic;
     using System.Linq;
@@ -135,18 +136,19 @@
         /// <summary>
         /// enregistrerer navire 2.
         /// </summary>
-        /// <param name="immat">num imo.</param>
-        public void EnregistrerArrivee(string immat)
+        /// <param name="imo">num imo.</param>
+        public void EnregistrerArrivee(string imo)
         {
-            if (this.NavireAttendus.ContainsKey(immat))
+            if (this.NavireAttendus.ContainsKey(imo))
             {
-                this.NavireArrives.Add(immat, this.NavireAttendus(immat));
+                this.NavireArrives.Add(imo, this.NavireAttendus[imo]);
             }
             else
             {
                 throw new Exception("Le navire n'est pas attendu");
             }
         }
+
         /// <summary>
         /// methode pour enregistrer depart des navires.
         /// </summary>
@@ -159,13 +161,29 @@
             }
             else
             {
-                throw new Exception("Pas présent dans le port");
+                throw new GestionPortException("le batal n'est pas dans le port.");
             }
         }
-        
+
+        /// <summary>
+        /// Methode ajout navire.
+        /// </summary>
+        /// <param name="navire">navire en attente</param>
         public void AjoutNavireEnAttente(Navire navire)
         {
-            this.navireArrives.Add(navire.Imo,navire);
+            if (!this.NavireArrives.TryGetValue(navire.Imo, out navire))
+            {
+                this.na
+            }
+        }
+
+        /// <summary>
+        /// methode est attendu.
+        /// </summary>
+        /// <param name="imo">imo.</param>
+        public void EstAttendu(string imo)
+        {
+
         }
     }
 }
