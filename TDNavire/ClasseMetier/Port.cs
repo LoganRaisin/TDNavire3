@@ -114,7 +114,14 @@
         /// <param name="navire">un navire dans le port.</param>
         public void EnregistrerArriveePrevue(Navire navire)
         {
-            this.NavireAttendus.Add(navire.Imo, navire);
+            if (this.navireAttendus.ContainsValue(navire))
+            {
+                this.NavireAttendus.Add(navire.Imo, navire);
+            }
+            else
+            {
+                throw new GestionPortException("le navire n'est pas prévu.");
+            }
         }
 
         /// <summary>
@@ -141,12 +148,117 @@
         {
             if (this.NavireAttendus.ContainsKey(imo))
             {
-                this.NavireArrives.Add(imo, this.NavireAttendus[imo]);
+                if (this.navireAttendus[imo] is Croisiere)
+                {
+                    this.PermuteAttenduArrive(imo);
+                }
+                else
+                {
+                    this.VerifTypeNbQuaiDispo(imo);
+                }
             }
             else
             {
                 throw new Exception("Le navire n'est pas attendu");
             }
+        }
+
+        private void PermuteAttenduArrive(string imo)
+        {
+            this.navireArrives.Add(imo, this.navireAttendus[imo]);
+            this.navireAttendus.Remove(imo);
+        }
+
+        private void PermuteAttenduAttente(string imo)
+        {
+            this.navireEnAttente.Add(imo, this.navireAttendus[imo]);
+            this.navireAttendus.Remove(imo);
+        }
+
+        private void VerifTypeNbQuaiDispo(string imo)
+        {
+            if (this.navireAttendus[imo] is Cargo)
+            {
+                if (this.NbPortique < this.GetnbCargoArrive())
+                    {
+                    this.PermuteAttenduArrive(imo);
+                    }
+                else
+                {
+                    this.PermuteAttenduAttente(imo);
+                }
+            }
+            else
+            {
+                if (this.navireAttendus[imo].TonnageGT <= 130000)
+                {
+                    if (this.nbQuaisTanker < this.GetnbTankerArrive())
+                    {
+                        this.PermuteAttenduArrive(imo);
+                    }
+                    else
+                    {
+                        this.PermuteAttenduAttente(imo);
+                    }
+                }
+                else if (this.navireAttendus[imo] is Tanker)
+                {
+                    if (this.nbQuaisTanker < this.GetnbSuperTankerArrive())
+                    {
+                        this.PermuteAttenduArrive(imo);
+                    }
+                    else
+                    {
+                        this.PermuteAttenduAttente(imo);
+                    }
+                }
+                else
+                {
+                    throw new GestionPortException("le type du navire n'existe pas");
+                }
+            }
+        }
+
+        private int GetnbCargoArrive()
+        {
+            int i = 0;
+            foreach (Navire navire in this.NavireArrives.Values)
+            {
+                if (navire is Cargo)
+                {
+                    i++;
+                }
+            }
+
+            return i;
+        }
+
+        private int GetnbTankerArrive()
+        {
+            int i = 0;
+            foreach (Navire navire in this.NavireArrives.Values)
+            {
+                if (navire is Tanker && navire.TonnageGT <= 130000)
+                {
+                    i++;
+                }
+            }
+
+            return i;
+        }
+
+        private int GetnbSuperTankerArrive()
+        {
+            int i = 0;
+            foreach (Navire navire in this.NavireArrives.Values)
+            {
+                if (navire is Tanker && navire.TonnageGT > 130000)
+                {
+                    i++;
+                }
+            }
+
+            return i;
         }
 
         /// <summary>
@@ -188,13 +300,14 @@
 
         public bool EstPresent(string imo)
         {
-            return this.NavireArrives.ContainsKey(imo)
+            return this.NavireArrives.ContainsKey(imo);
         }
 
         public bool  EstEnAttente(String imo)
         {
             return this.NavireEnAttente.ContainsKey(imo);
         }
+
         public void Chargement(String imo, int qte)
         {
             if (quantite < this.navireArrives[imo].TonnageDWT - this.navireArrives[imo].TonnageActuel)
